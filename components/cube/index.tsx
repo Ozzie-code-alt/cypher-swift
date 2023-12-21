@@ -2,7 +2,7 @@
 import React, { useRef } from "react";
 import { Canvas, useFrame, useLoader} from "@react-three/fiber";
 import { TextureLoader } from "three/src/loaders/TextureLoader.js";
-
+import { OrbitControls } from "@react-three/drei";
 
 
 const Cube = () => {
@@ -18,8 +18,8 @@ const textture_1 = useLoader(TextureLoader, "/assets/justin.webp")
 const textture_2 = useLoader(TextureLoader, "/assets/joel.webp")
 const textture_3 = useLoader(TextureLoader, "/assets/kent.webp")
 const textture_4 = useLoader(TextureLoader, "/assets/sean.webp")
-const textture_5 = useLoader(TextureLoader, "/assets/sean.webp")
-const textture_6 = useLoader(TextureLoader, "/assets/sean.webp")
+const textture_5 = useLoader(TextureLoader, "/assets/justin.webp")
+const textture_6 = useLoader(TextureLoader, "/assets/joel.webp")
   return (
     <mesh ref={mesh}>
       <boxGeometry args={[2.5, 2.5, 2.5]} />
@@ -27,8 +27,8 @@ const textture_6 = useLoader(TextureLoader, "/assets/sean.webp")
       <meshStandardMaterial map={textture_2} attach={"material-1"}/>
       <meshStandardMaterial map={textture_3} attach={"material-2"}/>
       <meshStandardMaterial map={textture_4} attach={"material-3"}/>
-      <meshStandardMaterial map={textture_5} attach={"material-3"}/>
-      <meshStandardMaterial map={textture_6} attach={"material-3"}/>
+      <meshStandardMaterial map={textture_5} attach={"material-4"}/>
+      <meshStandardMaterial map={textture_6} attach={"material-5"}/>
     </mesh>
   );
 };
@@ -37,6 +37,7 @@ const Index = () => {
   return (
     <div className="w-full h-screen">
       <Canvas>
+      <OrbitControls enableZoom={false} enablePan={false}/>
         <ambientLight intensity={2}/>
         <directionalLight position={[2, 1, 1]}/> {/* For 3d lighting effect*/}
         <Cube />
